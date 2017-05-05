@@ -1,0 +1,56 @@
+.hljs{display:block;overflow-x:auto;padding:15px;color:#525252;-webkit-text-size-adjust:none}
+.hljs-doctype{color:#999}
+.hljs-tag{color:#3e76f6}
+.hljs-attribute{color:#e96900}
+.hljs-value{color:#42b983}
+.hljs-keyword{color:#e96900}
+.hljs-string{color:#42b983}
+.hljs-comment{color:#b3b3b3}
+.hljs-operator .hljs-comment{color:#525252}
+.hljs-regexp{color:#af7dff}
+.hljs-built_in{color:#2db7f5}
+.css .hljs-class{color:#e96900}
+.css .hljs-number,.javascript .hljs-number{color:#fc1e70}
+.css .hljs-attribute{color:#af7dff}
+.css .hljs-important{color:red}
+.actionscript .hljs-literal,.javascript .hljs-literal{color:#fc1e70}
+pre{margin:10px 0px;padding:0}
+code{display:inline-block;margin:0 3px;padding:1px 5px;border:1px solid #eee;border-radius:3px;background:#f7f7f7;color:#666;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace}
+pre code{display:inline;margin:0;padding:0;border:none;background:0 0}
+pre.bg code{background:#f7f7f7}
+.api table{margin-bottom:24px;width:100%;border:1px solid #e9e9e9;border-collapse:collapse;empty-cells:show;font-size:12px;font-family:Consolas,Menlo,Courier,monospace;border-spacing:0}
+.api table th{background:#f7f7f7;color:#5c6b77;white-space:nowrap;font-weight:600}
+.api table td,.api table th{padding:8px 16px;border:1px solid #e9e9e9;text-align:left}
+.api table td ul li{font-size:12px!important}
+pre>code{display:block;overflow-x:auto;padding:15px;color:#525252;background: #f7f7f7;-webkit-text-size-adjust:none}
+
+article.doc h1{
+  font-size: 26px;
+  font-weight: 400;
+}
+article.doc h2{
+  font-size: 20px;
+  font-weight: 400;
+  margin: 12px 0px;
+}
+article.doc table{
+  font-family: Consolas,Menlo,Courier,monospace;
+  font-size: 12px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  margin-bottom: 24px;
+}
+article.doc table td,article.doc table th{
+  border: 1px solid #e9e9e9;
+  padding: 8px 16px;
+  text-align: left;
+}
+article.doc table th{
+  background: #f7f7f7;
+  white-space: nowrap;
+  color: #5c6b77;
+  font-weight: 600;
+}

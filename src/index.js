@@ -2,10 +2,12 @@
 import 'core-js/fn/array/find-index';
 import Icon from './components/icon';
 import Button from './components/button';
+import Input from './components/input';
 import locale from './locale';
 const zmoon = {
     Icon,
-    Button
+    Button,
+    Input
 };
 
 const install = function (Vue, opts = {}) {

@@ -2,8 +2,9 @@
   <div class="container">
     <nav>
       <ul>
-        <li><router-link to="/icon">Icon</router-link></li>
-        <li><router-link to="/button">Button</router-link></li>
+        <li :class="{checked:path==='/icon'}"><router-link to="/icon">Icon 图标</router-link></li>
+        <li :class="{checked:path==='/button'}"><router-link to="/button">Button 按钮</router-link></li>
+        <li :class="{checked:path==='/input'}"><router-link to="/input">Input 输入框</router-link></li>
       </ul>
     </nav>
     <div class="main">
@@ -12,26 +13,28 @@
   </div>
 </template>
 <style lang="less">
-  .container {
-    padding: 20px 20px 20px 0px;
-    display: flex;
-    nav {
-      width: 200px;
-      border-right: 1px solid #d4d4d4;
-      color: #657180;
-      li{
-        &:hover{
-            background: #f3f3f3;
-        }
-        a{
-          padding: 10px 0px 10px 20px;
-          display: block;
-        }
+  @import "../src/styles/index.less";
+</style>
+<script>
+  export default{
+    data(){
+      return {
+
+      }
+    },
+    created () {
+      // 组件创建完后获取数据，
+      // 此时 data 已经被 observed 了
+      this.fetchData()
+    },
+    watch: {
+      // 如果路由有变化，会再次执行该方法
+      '$route': 'fetchData'
+    },
+    methods:{
+      fetchData(){
+        this.path = this.$route.path;
       }
     }
-    .main{
-      padding-left: 20px;
-      flex: 1;
-    }
   }
-</style>
+</script>
