@@ -13,3 +13,4 @@ npm-debug.log
 *.log
 examples/dist/
 dist/
+doc/
