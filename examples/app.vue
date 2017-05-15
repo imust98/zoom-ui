@@ -5,6 +5,7 @@
         <li :class="{checked:path==='/icon'}"><router-link to="/icon">Icon 图标</router-link></li>
         <li :class="{checked:path==='/button'}"><router-link to="/button">Button 按钮</router-link></li>
         <li :class="{checked:path==='/input'}"><router-link to="/input">Input 输入框</router-link></li>
+        <li :class="{checked:path==='/radio'}"><router-link to="/radio">Radio单选框</router-link></li>
       </ul>
     </nav>
     <div class="main">

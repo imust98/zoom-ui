@@ -9,3 +9,7 @@
 ## 项目运行
 
  - npm run dev
+
+## 编译markdown文件
+
+ - npm run build:doc
