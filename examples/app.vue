@@ -33,7 +33,7 @@
     },
     methods:{
       fetchData(){
-        this.path = this.$route.path;
+        this.path = this.$route.path ;
       }
     }
   }

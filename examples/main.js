@@ -1,4 +1,3 @@
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './app.vue';
@@ -7,27 +6,32 @@ import zMoon from '../src/index';
 import locale from '../src/locale/lang/zh-CN';
 
 Vue.use(VueRouter);
-Vue.use(zMoon, { locale });
+Vue.use(zMoon, {locale});
 
 // 开启debug模式
 Vue.config.debug = true;
 
 // 路由配置
 const router = new VueRouter({
-  routes: [
-    {
-      path: '/button',
-      component: require('./routers/button.vue')
-    },
-    {
-      path: '/icon',
-      component: require('./routers/icon.vue')
-    },
-    {
-      path: '/input',
-      component: require('./routers/input.vue')
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            redirect:to =>{
+                return '/icon';
+        }},
+        {
+            path: '/icon',
+            component: require('./routers/icon.vue')
+        },
+        {
+            path: '/button',
+            component: require('./routers/button.vue')
+        },
+        {
+            path: '/input',
+            component: require('./routers/input.vue')
+        }
+    ]
 });
 
 new Vue({
