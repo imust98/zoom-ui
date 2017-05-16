@@ -4,6 +4,7 @@ import Icon from './components/icon';
 import Button from './components/button';
 import Input from './components/input';
 import Radio from './components/radio';
+import Checkbox from './components/checkbox';
 import locale from './locale';
 const zmoon = {
     Icon,
@@ -11,6 +12,8 @@ const zmoon = {
     Input,
     Radio,
     RadioGroup: Radio.Group,
+    Checkbox,
+    CheckboxGroup:Checkbox.Group
 };
 
 const install = function (Vue, opts = {}) {
