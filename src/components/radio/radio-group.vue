@@ -31,7 +31,7 @@
         data () {
             return {
                 currentValue: this.value,
-                children: []
+                childrens: []
             };
         },
         computed: {
@@ -64,11 +64,12 @@
             change (data) {
                 this.currentValue = data.value;
                 this.updateValue();
-                this.$emit('on-change', data.value);
+                this.$emit('input', data.value);
+                this.$emit('change', data.value);
             }
         },
         watch: {
-            value(){
+            value () {
                 this.updateValue();
             }
         }

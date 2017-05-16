@@ -1,7 +1,7 @@
 <template>
     <label :class="wrapClass">
         <span :class="radioClass">
-          <span :class="innerClasses"></span>
+          <span :class="innerClass"></span>
           <input type="radio"
                  :class="inputClass"
                  :disabled="disabled"
@@ -58,7 +58,7 @@
 
                 ]
             },
-            innerClasses () {
+            innerClass () {
                 return `${prefixCls}-inner`;
             },
             inputClass(){
@@ -81,9 +81,9 @@
                 const checked = event.target.checked;
                 this.currentValue = checked;
                 if (!this.group) {
-                    this.$emit('on-change', checked);
+                    this.$emit('change', checked);
                 }
-                if (this.group) {
+                if (this.group && this.label !== undefined) {
                     this.parent.change({
                         value: this.label,
                         checked: this.value

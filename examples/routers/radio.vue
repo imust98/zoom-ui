@@ -1,12 +1,15 @@
 <template>
     <div>
         <article class="doc" v-html="article"></article>
+        <p>单个Radio</p>
+        <Radio r-model="single">选项一</Radio>
+        <p>RadioGroup</p>
         <div>
-            <Radio-Group v-model="sex">
-                <Radio label="male form"></Radio>
-                <Radio label="female"></Radio>
+            <Radio-Group v-model="vertical" @change="changeHandle">
+                <Radio label="apple"><span>Apple</span></Radio>
+                <Radio label="android"><span>Android</span></Radio>
+                <Radio label="windows"><span>Windows</span></Radio>
             </Radio-Group>
-            <Button @click="handleChange">change</Button>
         </div>
     </div>
 </template>
@@ -17,13 +20,14 @@
     export default {
         data () {
             return {
-                sex: '',
-                article: tpl
+                vertical: 'apple',
+                article: tpl,
+                single:false
             }
         },
         methods: {
-            handleChange () {
-                this.sex = 'male form';
+            changeHandle(value){
+               // alert(value)
             }
         }
     }
