@@ -12,5 +12,4 @@ npm-debug.log
 *.swo
 *.log
 examples/dist/
-dist/
 doc/*.md
