@@ -1,0 +1,134 @@
+<h1 id="checkbox-">Checkbox  多选框</h1>
+<p>基础组件-多选框。主要用于一组可选项多项选择，或者单独用于标记切换某种状态</p>
+<h2 id="-">如何使用</h2>
+<p>使用Checkbox-group配合数组来生成组合。在组合使用时，Checkbox 使用 label 来自动判断选中状态。每个 Checkbox 的内容可以自定义，如不填写则默认使用 label 的值。</p>
+<pre><code><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"single"</span> @<span class="hljs-attr">on-change</span>=<span class="hljs-string">"changeHandle"</span>&gt;</span>Checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox</span>&gt;</span>
+            </span><span class="hljs-template-variable">{{ single }}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"single = !single"</span>&gt;</span>single-change<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            </span><span class="hljs-template-variable">{{ social }}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox-group</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"social"</span> @<span class="hljs-attr">on-change</span>=<span class="hljs-string">"changeHandle"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"twitter"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"social-twitter"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"facebook"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"social-facebook"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"github"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"social-github"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Github<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"snapchat"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"social-snapchat"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Snapchat<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Checkbox-group</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"less"</span>&gt;</span><span class="undefined">
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+            data () {
+                <span class="hljs-keyword">return</span> {
+                    <span class="hljs-attr">social</span>: [<span class="hljs-string">'facebook'</span>, <span class="hljs-string">'github'</span>],
+                    <span class="hljs-attr">single</span>: <span class="hljs-literal">false</span>
+                }
+            },
+            <span class="hljs-attr">methods</span>: {
+                changeHandle (d) {
+                    <span class="hljs-built_in">console</span>.log(d)
+                }
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre><h2 id="api">API</h2>
+<p>Checkbox props</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">只在单独使用时有效。可以使用 v-model 双向绑定数据</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>label</td>
+<td style="text-align:left">只在组合使用时有效。指定当前选项的 value 值，组合会自动判断是否选中</td>
+<td>[String,Number,Boolean]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td style="text-align:left">是否禁用当前项</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Checkbox events</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on-change</td>
+<td style="text-align:left">只在单独使用时候有效。在选项状态发生改变的时候触发，通过修改外部的数据改变时不会触发</td>
+<td>[true,false]</td>
+</tr>
+</tbody>
+</table>
+<p>CheckboxGroup props</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">指定当前选中的项目数据。可以使用 v-model 双向绑定数据</td>
+<td>[Array]</td>
+<td>[]</td>
+</tr>
+</tbody>
+</table>
+<p>CheckboxGroup events</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on-change</td>
+<td style="text-align:left">在选项状态发生改变时触发，返回已选中的数组。通过修改外部的数据改变时不会触发</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">示例</h2>

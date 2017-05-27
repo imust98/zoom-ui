@@ -1,0 +1,90 @@
+<h1 id="select-">Select  选择器</h1>
+<p>基础组件-下拉选择框，模拟原生浏览器的下拉选择器</p>
+<h2 id="-">如何使用</h2>
+<ul>
+<li>可以使用 v-model 双向绑定数据，value 只接受字符串和数字类型，组件会根据Option.value来选中数据。</li>
+<li>通过设置size属性为large和small将输入框设置为大和小尺寸，不设置为默认（中）尺寸。</li>
+<li>通过给Select设置属性disabled禁用整个选择器。</li>
+<li>通过给Option设置属性disabled可以禁用当前项。</li>
+</ul>
+<pre><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"model1"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 200px"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in cityList"</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"item.value"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">Option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+        data () {
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-attr">cityList</span>: [
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'beijing'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'北京市'</span>
+                    },
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'shanghai'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'上海市'</span>
+                    },
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'shenzhen'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'深圳市'</span>
+                    },
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'hangzhou'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'杭州市'</span>
+                    },
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'nanjing'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'南京市'</span>
+                    },
+                    {
+                        <span class="hljs-attr">value</span>: <span class="hljs-string">'chongqing'</span>,
+                        <span class="hljs-attr">label</span>: <span class="hljs-string">'重庆市'</span>
+                    }
+                ],
+                <span class="hljs-attr">model1</span>:<span class="hljs-string">''</span>
+            }
+        }
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre><h2 id="api">API</h2>
+<p>Select props</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">指定选中项目的value值，可以使用 v-model 双向绑定数据</td>
+<td>[String,Number]</td>
+<td>空</td>
+</tr>
+<tr>
+<td>size</td>
+<td style="text-align:left">选择框大小，可选值为large和small</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td style="text-align:left">是否禁用选择器</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td style="text-align:left">选择框默认文字</td>
+<td>String</td>
+<td>请选择</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">示例</h2>

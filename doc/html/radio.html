@@ -1,0 +1,137 @@
+<h1 id="radio-">Radio 单选框</h1>
+<p>基础组件-单选框。主要用于一组可选项单项选择，或者单独用于切换到选择状态</p>
+<h2 id="-">如何使用</h2>
+<p>使用Radio-group实现一组互斥的选项组。在组合使用时，Radio 使用 label 来自动判断。每个 Radio 的内容可以自定义，如不填写则默认使用 label 的值。</p>
+<pre><code>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>单个Radio<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Radio</span> <span class="hljs-attr">r-model</span>=<span class="hljs-string">"single"</span>&gt;</span>选项一<span class="hljs-tag">&lt;/<span class="hljs-name">Radio</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>RadioGroup<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Radio-Group</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"vertical"</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">"changeHandle"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"apple"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Radio</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"android"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Android<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Radio</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">Radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"windows"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Windows<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Radio</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Radio-Group</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+            data () {
+                <span class="hljs-keyword">return</span> {
+                    <span class="hljs-attr">vertical</span>: <span class="hljs-string">'apple'</span>,
+                    <span class="hljs-attr">single</span>:<span class="hljs-literal">false</span>
+                }
+            },
+            <span class="hljs-attr">methods</span>: {
+                changeHandle(value){
+                   <span class="hljs-comment">// alert(value)</span>
+                }
+            }
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><h2 id="api">API</h2>
+<p>Radio props</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">只在单独使用时有效。可以使用 v-model 双向绑定数据</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>label</td>
+<td style="text-align:left">只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目</td>
+<td>[String,Number]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td style="text-align:left">是否禁用当前项</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Radio events</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on-change</td>
+<td style="text-align:left">在选项状态发生改变时触发，返回当前状态。通过修改外部的数据改变时不会触发</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>RadioGroup props</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">指定当前选中的项目数据。可以使用 v-model 双向绑定数据</td>
+<td>[String,Number]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td style="text-align:left">可选值为 button 或不填，为button时使用按钮样式</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>size</td>
+<td style="text-align:left">尺寸，只对按钮样式生效，可选值为large和small或者不设置</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>vertical</td>
+<td style="text-align:left">是否垂直排列，按钮样式下无效</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>RadioGroup events</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on-change</td>
+<td style="text-align:left">在选项状态发生改变时触发，返回当前选中项。通过修改外部的数据改变时不会触发</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-">示例</h2>
