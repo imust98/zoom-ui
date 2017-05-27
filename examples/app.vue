@@ -7,6 +7,7 @@
         <li :class="{checked:path==='/input'}"><router-link to="/input">Input 输入框</router-link></li>
         <li :class="{checked:path==='/radio'}"><router-link to="/radio">Radio 单选框</router-link></li>
         <li :class="{checked:path==='/checkbox'}"><router-link to="/checkbox">Checkbox 多选框</router-link></li>
+        <li :class="{checked:path==='/select'}"><router-link to="/select">Select 选择器</router-link></li>
       </ul>
     </nav>
     <div class="main">

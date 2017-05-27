@@ -1,0 +1,220 @@
+@select-prefix-cls: ~"@{css-prefix}select";
+@select-item-prefix-cls: ~"@{css-prefix}select-item";
+@select-dropdown-prefix-cls: ~"@{css-prefix}select-dropdown";
+.select-item(@size-class, @item-class) {
+  .@{item-class} {
+    margin: 0;
+    line-height: normal;
+    padding: 7px 16px;
+    clear: both;
+    color: @text-color;
+    font-size: @font-size-small !important;
+    white-space: nowrap;
+    list-style: none;
+    cursor: pointer;
+    transition: background @transition-time @ease-in-out;
+
+    &:hover{
+      background: @background-color-select-hover;
+    }
+
+    &-focus {
+      background: @background-color-select-hover;
+    }
+
+    &-disabled {
+      color: @btn-disable-color;
+      cursor: @cursor-disabled;
+
+      &:hover {
+        color: @btn-disable-color;
+        background-color: #fff;
+        cursor: @cursor-disabled;
+      }
+    }
+
+    &-selected ,&-selected:hover{
+      color: #fff;
+      background: @selected-color;
+    }
+
+    &-selected&-focus {
+      background: shade(@selected-color, 10%);
+    }
+
+    &-divided{
+      margin-top: 5px;
+      border-top: 1px solid @border-color-split;
+      &:before{
+        content: '';
+        height: 5px;
+        display: block;
+        margin: 0 -16px;
+        background-color: #fff;
+        position: relative;
+        top: -7px;
+      }
+    }
+  }
+
+  .@{size-class}-large .@{item-class} {
+    padding: 7px 16px 8px;
+    font-size: @font-size-base !important;
+  }
+}
+
+
+.@{select-dropdown-prefix-cls} {
+  width: inherit;
+  max-height: 200px;
+  overflow: auto;
+  margin: 5px 0;
+  padding: 5px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  //border: 1px solid @border-color-split;
+  border-radius: @btn-border-radius;
+  //box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  box-shadow: @shadow-base;
+  position: absolute;
+  z-index: @zindex-select;
+}
+// for select and input like component's arrow
+.inner-arrow() {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  line-height: 1;
+  margin-top: -7px;
+  font-size: @font-size-base;
+  color: @subsidiary-color;
+  transition: all @transition-time @ease-in-out;
+}
+.@{select-prefix-cls} {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: @text-color;
+  font-size: @font-size-base;
+  //position: relative;
+  line-height: normal;
+
+  &-selection {
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+
+    background-color: #fff;
+    border-radius: @btn-border-radius;
+    border: 1px solid @border-color-base;
+    transition: all @transition-time @ease-in-out;
+  }
+
+  &-selection:hover .@{select-prefix-cls}-arrow:nth-of-type(2) {
+    display: none;
+  }
+
+  &-arrow {
+    .inner-arrow();
+  }
+
+  &-visible {
+    .@{select-prefix-cls}-selection {
+      .active();
+    }
+
+    .@{select-prefix-cls}-arrow:nth-of-type(1) {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-disabled {
+    .@{select-prefix-cls}-selection {
+      .disabled();
+
+      .@{select-prefix-cls}-arrow:nth-of-type(1) {
+        display: none;
+      }
+
+      &:hover {
+        border-color: @border-color-base;
+        box-shadow: none;
+
+        .@{select-prefix-cls}-arrow:nth-of-type(2) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &-selection {
+    height: @input-height-base;
+    position: relative;
+
+    .@{select-prefix-cls}-placeholder {
+      color: @input-placeholder-color;
+    }
+
+    .@{select-prefix-cls}-placeholder, .@{select-prefix-cls}-selected-value {
+      display: block;
+      height: @input-height-base - 2px;
+      line-height: @input-height-base - 2px;
+      font-size: @font-size-small;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 8px;
+      padding-right: 24px;
+    }
+  }
+
+  &-large &-selection {
+    height: @input-height-large;
+
+    .@{select-prefix-cls}-placeholder, .@{select-prefix-cls}-selected-value {
+      height: @input-height-large - 2px;
+      line-height: @input-height-large - 2px;
+      font-size: @font-size-base;
+    }
+  }
+
+  &-small &-selection {
+    height: @input-height-small;
+    border-radius: @btn-border-radius-small;
+
+    .@{select-prefix-cls}-placeholder, .@{select-prefix-cls}-selected-value {
+      height: @input-height-small - 2px;
+      line-height: @input-height-small - 2px;
+    }
+  }
+}
+
+
+.select-item(@select-prefix-cls, @select-item-prefix-cls);
+
+.@{select-item-prefix-cls} {
+  &-selected {
+    color: @selected-color;
+    background: #fff;
+  }
+  &-focus, &-selected:hover {
+    background: @background-color-select-hover;
+  }
+
+  &-selected&-focus {
+    color: shade(@selected-color, 10%);
+    background: #fff;
+  }
+
+  &-selected:after {
+    .ivu-icon();
+    float: right;
+    font-size: 24px;
+    content: '\F3FD';
+    color: @selected-color;
+  }
+}
