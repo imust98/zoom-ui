@@ -7,8 +7,10 @@
     "dev": "webpack-dev-server --content-base dist/ --open --inline --hot --compress --history-api-fallback --port 8081 --config build/webpack.dev.config.js",
     "dist:style": "gulp --gulpfile build/build-style.js",
     "dist:dev": "webpack --config build/webpack.dist.dev.config.js",
-    "dist": "npm run dist:style && npm run dist:dev",
-    "build:doc": "gulp --gulpfile build/build-doc.js"
+    "dist:prod": "webpack --config build/webpack.dist.prod.config.js",
+    "dist": "npm run dist:style && npm run dist:dev && npm run dist:prod",
+    "build:doc": "gulp --gulpfile build/build-doc.js",
+    "prepublish": "npm run dist"
   },
   "author": "",
   "license": "ISC",
