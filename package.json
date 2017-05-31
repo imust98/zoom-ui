@@ -10,7 +10,8 @@
     "dist:prod": "webpack --config build/webpack.dist.prod.config.js",
     "dist": "npm run dist:style && npm run dist:dev && npm run dist:prod",
     "build:doc": "gulp --gulpfile build/build-doc.js",
-    "prepublish": "npm run dist"
+    "prepublish": "npm run dist",
+    "build:main":"webpack --config build/webpack.dist.publish.config.js"
   },
   "author": "",
   "license": "ISC",
