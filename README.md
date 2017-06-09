@@ -13,3 +13,7 @@
 ## 编译markdown文件
 
  - npm run build:doc
+ 
+## 线上预览
+ 
+  [线上地址](https://imust98.github.io/zoom-ui/examples/index.html "zoom-ui")
